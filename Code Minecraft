@@ -1,0 +1,40 @@
+@Override
+public void onDisable() {
+    getLogger().info("HelloPlugin disabled");
+}
+
+@EventHandler
+public void onJoin(PlayerJoinEvent e) {
+    Player p = e.getPlayer();
+    p.sendMessage("§6Добро пожаловать, " + p.getName() + "!");
+}
+
+@Override
+public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    if (cmd.getName().equalsIgnoreCase("hello")) {
+        if (sender instanceof Player) {
+            ((Player) sender).sendMessage("§aПривет!");
+        } else {
+            sender.sendMessage("Привет, консоль!");
+        }
+        return true;
+    }
+    return false;
+}
+(next)
+
+``yaml name=plugin.yml
+name: HelloPlugin
+main: com.example.helloplugin.HelloPlugin
+version: 1.0
+api-version: 1.19
+commands:
+  hello:
+    description: Say hello
+https://hub.spigotmc.org/nexus/content/repositories/snapshots/
+plugin.yml
+http://maven.apache.org/xsd/maven-4.0.0.xsd
+http://www.w3.org/2001/XMLSchema-instance
+http://maven.apache.org/POM/4.0.0
+pom.xml
+com.example.helloplugin.HelloPlugin
